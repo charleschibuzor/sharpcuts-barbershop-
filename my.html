@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SharpCuts Barber</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="my.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">SharpCuts</div>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <a href="#booking" class="btn">Book Now</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Look Sharp. Feel Confident.</h1>
+    <p>Premium barber services at affordable prices</p>
+    <a href="#booking" class="btn">Book Appointment</a>
+  </div>
+
+  <div class="hero-image">
+    <img src="image/4677e56259bc728d4e3e9854ed73d980.jpg" alt="Professional barber at work">
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <h2>Our Services</h2>
+
+  <div class="service-cards">
+    <div class="card">
+      <h3>Haircut</h3>
+      <p>₦3,000</p>
+    </div>
+
+    <div class="card">
+      <h3>Beard Trim</h3>
+      <p>₦1,500</p>
+    </div>
+
+    <div class="card">
+      <h3>Hair + Beard</h3>
+      <p>₦4,000</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery">
+  <h2>Our Work</h2>
+
+  <div class="images">
+    <img src="image/images (1).jpg" alt="Fade haircut style">
+    <img src="image/images (2).jpg" alt="Clean beard trim">
+    <img src="image/images (1).jpg" alt="Modern haircut">
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="booking">
+  <h2>Book Appointment</h2>
+
+  <!-- <form action="#" method="POST">
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Phone Number" required>
+
+    <select>
+      <option>Haircut</option>
+      <option>Beard Trim</option>
+      <option>Buzz Cut</option>
+    </select>
+
+    <button type="submit">Book Now</button>
+  </form> -->
+  <form id="bookingForm">
+  <input type="text" id="name" placeholder="Your Name" required>
+  <input type="tel" id="phone" placeholder="Phone Number" required>
+
+  <select id="service">
+    <option>Haircut</option>
+    <option>Beard Trim</option>
+    <option>Buzz Cut</option>
+  </select>
+
+  <button type="submit">Book Now</button>
+</form>
+
+  <a href="https://wa.me/23408166817570" class="whatsapp-btn">
+    Book via WhatsApp
+  </a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Enugu City, Nigeria</p>
+  <p>+234 816 681 7570</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 SharpCuts Barber</p>
+</footer>
+
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h3>✅ Booking Sent!</h3>
+    <p>Your request has been opened in WhatsApp.</p>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<!-- <script>
+  document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let service = document.getElementById("service").value;
+
+    let message = `Hello, I would like to book an appointment.%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Service: ${service}`;
+
+    let whatsappNumber = "2348166817570"; 
+
+    let url = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+    window.open(url, "_blank");
+  });
+</script> -->
+
+<script>
+  const form = document.getElementById("bookingForm");
+  const popup = document.getElementById("popup");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let service = document.getElementById("service").value;
+
+    let message = `Hello, I want to book an appointment.%0A%0A
+* Name : ${name}%0A
+* Phone : ${phone}%0A
+* Service : ${service}`;
+
+    let whatsappNumber = "2348166817570";
+    let url = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+    window.open(url, "_blank");
+
+    // SHOW POPUP
+    popup.style.display = "flex";
+
+    // RESET FORM
+    form.reset();
+  });
+
+  function closePopup() {
+    popup.style.display = "none";
+  }
+</script>
+</body>
+</html>
